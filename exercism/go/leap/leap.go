@@ -2,29 +2,19 @@
 // indicating whether a given year is a leap year or not.
 package leap
 
-import (
-	"math"
-)
+import ()
 
 // testVersion should match the targetTestVersion in the test file.
 const testVersion = 2
 
-func isDivisibleBy(x, y int) bool {
-	if math.Mod(float64(x), float64(y)) == 0 {
-	  return true
-	} else {
-		return false
-	}
-}
-
-// IsLeapYear which returns a boolean indicating whether a given year is a
+// IsLeapYear returns a boolean indicating whether a given year is a
 // leap year or not.
 func IsLeapYear(year int) bool {
-	if isDivisibleBy(year, 400) {
+	if year%400 == 0 {
 		return true
-	} else if isDivisibleBy(year, 100) {
+	} else if year%100 == 0 {
 		return false
-	} else if isDivisibleBy(year, 4) {
+	} else if year%4 == 0 {
 		return true
 	} else {
 		return false
