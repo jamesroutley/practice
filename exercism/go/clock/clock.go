@@ -29,9 +29,9 @@ func (c Clock) String() string {
 // Add returns a clock with minutes added to it. Add correctly handles negative
 // minute values.
 func (c Clock) Add(minutes int) Clock {
-	c_new := Clock{c.hour, c.minute + minutes}
-	c_new.normalise()
-	return c_new
+	c.minute += minutes
+	c.normalise()
+	return c
 }
 
 // normalise converts impossible times to their correct value. For example,
@@ -48,17 +48,17 @@ func normaliseMinutes(m int) (int, int) {
 	h := 0
 	if m < 0 {
 		for m < 0 {
-			h -= 1
+			h--
 			m += 60
 			for m < -59 {
-				h -= 1
+				h--
 				m += 60
 			}
 		}
 	} else {
 		for m > 59 {
 			m -= 60
-			h += 1
+			h++
 		}
 	}
 	return h, m
