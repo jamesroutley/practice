@@ -1,4 +1,4 @@
-// package clock provides a basic time-only clock.
+// Package clock provides a basic time-only clock.
 package clock
 
 import (
