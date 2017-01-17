@@ -2,7 +2,6 @@
 package acronym
 
 import (
-	"bytes"
 	"regexp"
 	"strings"
 )
@@ -10,22 +9,21 @@ import (
 // Define which test version to use
 const testVersion = 2
 
+// Matches individual words, defined as:
+// - One or more uppercase letters followed by zero or more lowercase
+// - One or more lowercase letters
+// This pattern has a side effect of treating the different sections of
+// CamelCase words as different words, which is the desired behaviour under
+// the current definition of acronym.
+var re = regexp.MustCompile(`[A-Z]+[a-z]*|[a-z]+`)
+
 // Abbreviate returns the acronym of s
 func Abbreviate(s string) string {
-	// First capture group searches for letters after word boundaries.
-	// Second capture group searches for capital letters after lowercase letters,
-	// as seen in CamelCase
-	re := regexp.MustCompile(`(\b\w)|[a-z]([A-Z])`)
-	matches := re.FindAllStringSubmatch(s, -1)
-	var acronym bytes.Buffer
-	for _, match := range matches {
-		var initial string
-		if match[2] != "" {
-			initial = match[2]
-		} else {
-			initial = match[1]
-		}
-		acronym.WriteString(strings.ToUpper(initial))
-	}
-	return acronym.String()
+	matches := re.FindAllString(s, -1)
+  var acronym = ""
+  for _, match := range matches {
+    acronym += string(match[0])
+  }
+  acronym = strings.ToUpper(acronym)
+	return acronym
 }
