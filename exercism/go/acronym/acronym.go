@@ -20,10 +20,10 @@ var re = regexp.MustCompile(`[A-Z]+[a-z]*|[a-z]+`)
 // Abbreviate returns the acronym of s
 func Abbreviate(s string) string {
 	matches := re.FindAllString(s, -1)
-  var acronym = ""
-  for _, match := range matches {
-    acronym += string(match[0])
-  }
-  acronym = strings.ToUpper(acronym)
+	var acronym = ""
+	for _, match := range matches {
+		acronym += string(match[0])
+	}
+	acronym = strings.ToUpper(acronym)
 	return acronym
 }
