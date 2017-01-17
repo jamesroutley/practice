@@ -9,9 +9,11 @@ import (
 // Constant declaration.
 const testVersion = 4
 
+// Gigasecond constant
+const gigasecond = 1e9 * time.Second
+
 // AddGigasecond adds 10^9 seconds to a time.Time.
 func AddGigasecond(t time.Time) time.Time {
-	d := time.Duration(1000000000) * time.Second
-	t = t.Add(d)
+	t = t.Add(time.Duration(gigasecond))
 	return t
 }
