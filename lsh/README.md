@@ -27,7 +27,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Download source code with git:
 
 ```shell
-$ git clone TODO
+$ git clone git@github.com:jamesroutley/practice.git
 $ cd practice/lsh
 ```
 
