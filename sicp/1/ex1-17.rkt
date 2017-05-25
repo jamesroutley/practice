@@ -21,9 +21,12 @@
 
 (define (fast-multiply a b)
   (cond ((= b 0) 0)
-        (else (if (even? b)
-                (double (fast-multiply a (halve b)))
-                (+ a (fast-multiply a (- b 1)))))))
+        ((= b 1) a)
+        ; This is a naive implementation of the formula above. It has O(n) 
+        ; space complexity. The better solution below has O(1) complexity. 
+        ; ((even? b) (double (fast-multiply a (halve b))))  
+        ((even? b) (fast-multiply (double a) (halve b)))
+        (else (+ a (fast-multiply a (- b 1))))))
 
-(fast-multiply 0 6)
+(fast-multiply 10 6)
 
