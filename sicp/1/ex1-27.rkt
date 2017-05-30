@@ -1,6 +1,4 @@
 #lang sicp
-; Import 'random' procedure
-(#%require (only racket/base random))
 
 ; 561, 1105, 1729, 2465, 2821, and 6601 are Carmichael numbers. They pass the
 ; Fermat's little theorem test, but are not in fact prime. To demonstrate this
