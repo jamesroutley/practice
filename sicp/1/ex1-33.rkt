@@ -58,5 +58,5 @@
   (define (inc x) (+ x 1))
   (filtered-accumulate relatively-prime-to-n? * 1 ident 1 inc n))
 
-(product-of-relative-primes 12)
+(product-of-relative-primes 12)  ; = 385
 
