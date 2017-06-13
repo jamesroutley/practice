@@ -17,10 +17,10 @@
   ; d returns values in the sequence:
   ; k = 1, 2, 3, 4, 5, 6, 7, 8, 9, ...
   ; d = 1, 2, 1, 1, 4, 1, 1, 6, 1, ...
-  (define (d k)
-    (let ((k-plus-1 (+ k 1)))
-      (if (= (remainder k-plus-1 3) 0)
-      (* (/ k-plus-1 3.0) 2.0)
+  (define (d i)
+    (let ((i-plus-1 (+ i 1)))
+      (if (= (remainder i-plus-1 3) 0)
+      (* (/ i-plus-1 3.0) 2.0)
       1.0)))
   (cont-frac (lambda (i) 1.0) d k))
 
